@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Меню{% endblock %}
+{% block content %}
+<h1 class="mb-4">Список блюд</h1>
+<div class="row">
+    {% for dish in dishes %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ dish.name }}</h5>
+                <p class="card-text">{{ dish.description|truncatewords:20 }}</p>
+                <a href="{% url 'dish_detail' dish.id %}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
