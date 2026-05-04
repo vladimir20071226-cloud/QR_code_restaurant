@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout, login, authenticate
 from .forms import RegisterForm, DishForm
-from config.settings import CLIENT_ID, CLIENT_SECRET
+from qr_menu.settings import CLIENT_ID, CLIENT_SECRET
 from django.contrib.auth.models import User
 from .models import Dish
 from django.views import View
