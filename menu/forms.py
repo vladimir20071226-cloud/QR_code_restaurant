@@ -8,4 +8,4 @@ class RegisterForm(forms.Form):
 class DishForm(forms.Form):
     class Meta:
         model=Dish
-        values=['description', 'currency', 'price', 'duration_of_cooking']
+        values=['description', 'currency', 'price', 'cook_time', 'image']

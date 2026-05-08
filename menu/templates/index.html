@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="hero bg-dark text-white text-center py-5">
+    <div class="container">
+        <img src="{% static 'images/restaurant_hall.jpg' %}"
+             alt="Ресторан"
+             class="img-fluid rounded shadow mb-4"
+             style="max-height: 400px; object-fit: cover;">
+        <h1 class="display-4 fw-bold">Добро пожаловать в QRMenu!</h1>
+        <p class="lead">Просматривайте меню ресторана и статистику заказов</p>
+        <a href="{% url 'menu:dish_list' %}" class="btn btn-primary btn-lg mt-3">
+            <i class="bi bi-book"></i> Перейти к меню
+        </a>
+    </div>
+</header>
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <i class="bi bi-phone display-4 text-primary"></i>
+            <h5 class="mt-3">Удобный доступ</h5>
+            <p>Меню всегда под рукой через QR‑код.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="bi bi-graph-up display-4 text-success"></i>
+            <h5 class="mt-3">Статистика заказов</h5>
+            <p>Следите за популярностью блюд и продажами.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="bi bi-people display-4 text-warning"></i>
+            <h5 class="mt-3">Для гостей</h5>
+            <p>Простая навигация и быстрый заказ.</p>
+        </div>
+    </div>
+</div>
 
-</body>
-</html>
+{% endblock %}
