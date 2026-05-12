@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Корзина заказов{% endblock %}
+{% block content %}
+<div class="container mt-5">
+<h2>Все заказы</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Дата</th>
+            <th>Статус</th>
+            <th>Блюда</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.created_at|date:"d.m.Y H:i" }}</td>
+            <td>{{ order.get_status_display }}</td>
+            <td>
+                <ul>
+                    {% for item in order.items.all %}
+                        <li>{{ item.dish.name }} × {{ item.quantity }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">Заказов пока нет</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Заказ принят{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Ваш заказ №{{ order.id }} принят</h2>
+    <p>Дата: {{ order.created_at|date:"d.m.Y H:i" }}</p>
+    <p>Статус: {{ order.get_status_display }}</p>
+    <h4>Блюда:</h4>
+    <ul>
+        {% for item in order.items.all %}
+            <li>{{ item.dish.name }} × {{ item.quantity }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

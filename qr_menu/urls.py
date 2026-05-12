@@ -26,9 +26,10 @@ urlpatterns = [
     path('', mainapp.index, name='index'),
     path('menu/', include('menu.urls', namespace='menu')),
     path('auth/', include('authapp.urls', namespace='auth')),
-    path('login/', register.UserLogin.as_view(), name='login'),
-    path('register/', register.UserRegister.as_view(), name='register'),
-    path('logout/', register.user_logout, name='user_logout')
+    path('login/', register.user_login, name='login'),
+    path('register/', register.register, name='register'),
+    path('logout/', register.user_logout, name='user_logout'),
+    path('login_success/', register.login_success, name='login_success'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

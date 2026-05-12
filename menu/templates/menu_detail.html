@@ -1,33 +1,26 @@
 {% extends "base.html" %}
 {% block title %}Меню{% endblock %}
 {% block content %}
-<div class="mb-4">
-    <a href="{% url 'menu:dish_list' %}" class="btn btn-secondary">
-        <i class="bi bi-arrow-left"></i> Назад к меню
-    </a>
-</div>
 <div class="row">
     {% for dish in dishes %}
         <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="{{ dish.image.url }}" class="card-img-top" alt="{{ dish.name }}">
-                <div class="card-body">
+            <div class="card shadow-sm h-100">
+                {% if dish.image %}
+                    <img src="{{ dish.image.url }}" class="card-img-top" alt="{{ dish.name }}">
+                {% else %}
+                    <img src="/static/img/placeholder.jpg" class="card-img-top" alt="Нет фото">
+                {% endif %}
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ dish.name }}</h5>
                     <p class="card-text">{{ dish.description }}</p>
-                    <p class="fw-bold text-primary"><i class="bi bi-cash"></i> {{ dish.price }} ₸</p>
-                    <p class="text-muted"><i class="bi bi-clock"></i> {{ dish.cook_time }} мин</p>
-                    <a href="{% url 'menu:order_create' pk=dish.pk %}" class="btn btn-success">Заказать</a>
-                    <a href="{% url 'menu:dish_detail' pk=dish.pk %}" class="btn btn-outline-secondary">
-                        <i class="bi bi-bar-chart"></i> Статистика
-                    </a>
-                    {% if user.is_staff %}
-                        <a href="{% url 'dish_delete' pk=dish.pk %}" class="btn btn-danger">
-                            <i class="bi bi-trash"></i> Удалить
-                        </a>
-                    {% endif %}
+                    <p class="fw-bold text-primary mt-auto">{{ dish.price }} {{ dish.currency }}</p>
+                    <p class="text-muted">Время готовки: {{ dish.cook_time }} мин</p>
+                    <a href="{% url 'menu:order_create' dish.pk %}" class="btn btn-success mt-auto"><i class="bi bi-cart"></i> Заказать</a>
                 </div>
             </div>
         </div>
+    {% empty %}
+        <p class="text-center mt-5">Меню пока пустое.</p>
     {% endfor %}
 </div>
 {% endblock %}

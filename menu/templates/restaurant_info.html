@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2>Хотите добавить свой ресторан?</h2>
+  <p>Для этого нужно войти как <strong>суперпользователь</strong>.</p>
+  <p>После входа в админку вы сможете:</p>
+  <ul>
+    <li>Добавлять и редактировать рестораны</li>
+    <li>Создавать меню и блюда</li>
+    <li>Управлять сотрудниками</li>
+  </ul>
+  <a href="{% url 'admin:index' %}" class="btn btn-primary">Перейти в админку</a>
+</div>
+{% endblock %}

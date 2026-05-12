@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2>Меню сезона: {{ season }}</h2>
+  <div class="row">
+    {% for dish in dishes %}
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          {% if dish.image %}
+            <img src="{{ dish.image.url }}" class="card-img-top" alt="{{ dish.name }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ dish.name }}</h5>
+            <p class="card-text">{{ dish.description }}</p>
+            <p><strong>{{ dish.price }} ₸</strong></p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>В этом сезоне пока нет блюд.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

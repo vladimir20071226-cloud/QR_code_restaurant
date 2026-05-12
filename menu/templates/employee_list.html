@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2>Наши сотрудники</h2>
+  <div class="row">
+    {% for employee in employees %}
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body text-center">
+            {% if employee.image %}
+            <img src="{{ employee.image.url }}" class="img-fluid rounded mb-3" style="max-height:150px;object-fit:cover;">
+            {% endif %}
+            <h5 class="card-title">{{ employee.name }}</h5>
+            <p class="card-text">{{ employee.position }}</p>
+            {% if employee.email %}
+              <p>Email: {{ employee.email }}</p>
+            {% endif %}
+            {% if employee.phone %}
+              <p>Телефон: {{ employee.phone }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
