@@ -8,7 +8,7 @@
     <h4>Блюда:</h4>
     <ul>
         {% for item in order.items.all %}
-            <li>{{ item.dish.name }} × {{ item.quantity }}</li>
+            <li>{{ item.dish.name }} * {{ item.quantity }}</li>
         {% endfor %}
     </ul>
 </div>

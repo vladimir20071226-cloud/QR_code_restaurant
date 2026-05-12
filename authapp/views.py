@@ -4,7 +4,7 @@ from qr_menu.settings import CLIENT_ID, CLIENT_SECRET
 def google_auth(request):
     url = ("https://accounts.google.com/o/oauth2/v2/auth"
            f"?client_id={CLIENT_ID}"
-           "&redirect_uri=https://localhost:8000"
+           "&redirect_uri=https://qrmenu.onrender.com/auth/google/callback"
            "&response_type=code"
            "&scope=openid email profile")
     return redirect(url)
