@@ -12,26 +12,22 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
-#from dotenv import load_dotenv
-#load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-#CLIENT_ID = os.getenv('CLIENT_ID')
-#CLIENT_SECRET=os.getenv('CLIENT_SECRET')
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET=os.getenv('CLIENT_SECRET')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = os.getenv('SECRET_KEY')
-CLIENT_SECRET='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'
-CLIENT_ID='779303568145-veloc4nud6b1d8lg5h2esb8pjgane3f1.apps.googleusercontent.com'
-SECRET_KEY='django-insecure-v)sy4&vd5i0hy9jpd=q)=7tg!4&2-1y38sfce)*iqrztpz@0rr'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['*']
-DEBUG=True
 
 # Application definition
 
