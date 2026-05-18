@@ -33,7 +33,7 @@ class EmployeeAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display=("customer_name", "phone", "created_at", "status",)
     list_filter=("status", "created_at",)
-    search_fields=("items__dish__name", "customer_name", "phone",)
+    search_fields=("customer_name", "phone",)
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
     list_display=("dish", "order", "quantity",)
